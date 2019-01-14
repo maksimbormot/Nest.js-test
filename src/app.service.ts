@@ -7,15 +7,24 @@ export class AppService {
   orders: ClientProxy;
 
   createOrder() {
-    return 'Create Order';
+    const payload = {}
+    const pattern = { cmd: 'createOrder'}
+
+    return this.orders.send(pattern, payload)
   }
 
-  cancelOrder() {
-    return 'Cancel Order Status';
+  getOrderStatus(id) {
+    const payload = { id }
+    const pattern = { cmd: 'getOrderStatus'}
+
+    return this.orders.send(pattern, payload)
   }
 
-  getOrderStatus() {
-    return 'Get Order Status';
+  cancelOrder(id) {
+    const payload = { id }
+    const pattern = { cmd: 'cancelOrder'}
+
+    return this.orders.send(pattern, payload)
   }
 
 }

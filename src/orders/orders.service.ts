@@ -7,15 +7,15 @@ export class OrdersService {
   orders: ClientProxy;
 
   createOrder() {
-    return 'Create Order';
+    return 'Create Order Microservice';
   }
 
   getOrderStatus() {
-    return 'Get Order Status';
+    return 'Get Order Status Microservice';
   }
 
   cancelOrder() {
-    return 'Cancel Order Status';
+    return 'Cancel Order Status Microservice';
   }
 
 }

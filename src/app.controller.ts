@@ -17,12 +17,12 @@ export class AppController {
 
   @Get('status')
   getOrderStatus(@Param('id') id) {
-    return this.appService.getOrderStatus()
+    return this.appService.getOrderStatus(id)
   }
 
   @Get('cancel')
   cancelOrder(@Param('id') id) {
-    return this.appService.cancelOrder()
+    return this.appService.cancelOrder(id)
   }
 
 }
