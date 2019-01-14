@@ -19,7 +19,12 @@ export class OrdersController {
   }
 
   @MessagePattern({ cmd: 'cancelOrder' })
-  cancel() {
+  cancelOrder() {
     return this.ordersService.cancelOrder();
+  }
+
+  @MessagePattern({ cmd: 'confirmOrder' })
+  confirmOrder() {
+    return this.ordersService.confirmOrder();
   }
 }

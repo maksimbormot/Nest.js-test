@@ -4,13 +4,13 @@ import { PaymentsService } from './payments.service'
 
 @Controller()
 export class PaymentsController {
-  constructor(private readonly ordersService: PaymentsService) {}
+  constructor(private readonly paymentsService: PaymentsService) {}
 
   @Client({ transport: Transport.TCP, options: { port: 3002 } })
 
   @MessagePattern({ cmd: 'approvePayment' })
   approvePayment() {
-    return this.ordersService.approvePayment();
+    return this.paymentsService.approvePayment();
   }
 
 }

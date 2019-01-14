@@ -7,7 +7,14 @@ export class PaymentsService {
   orders: ClientProxy;
 
   approvePayment() {
-    return 'Approve Payment Microservice';
+    console.log('approvePayment Microservice');
+
+    const approve = Math.random() > 0.5 ? true : false
+
+    const pattern = { cmd: approve ? 'confirmOrder' : 'cancelOrder'}
+    const payload = { approve}
+
+    return this.orders.send(pattern, payload)
   }
 
 }
