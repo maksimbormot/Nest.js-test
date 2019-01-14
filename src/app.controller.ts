@@ -1,12 +1,29 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post, Param } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: AppService) {
+  }
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  root() {
+    return 'Orders App'
   }
+
+  @Post()
+  createOrder() {
+    return this.appService.createOrder()
+  }
+
+  @Get('status')
+  getOrderStatus(@Param('id') id) {
+    return this.appService.getOrderStatus()
+  }
+
+  @Get('cancel')
+  cancelOrder(@Param('id') id) {
+    return this.appService.cancelOrder()
+  }
+
 }
